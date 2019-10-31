@@ -1,0 +1,9 @@
+{
+  "extends": "%SET_DURING_SB_INIT%",
+  "compilerOptions": {
+    "types": ["node"]
+  },
+  "exclude": ["../apps/test.ts", "../apps/**/*.spec.ts", "../libs/**/*.spec.ts"],
+  "include": ["../apps/**/*", "../libs/**/*"],
+  "files": ["./typings.d.ts"]
+}
