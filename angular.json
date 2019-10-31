@@ -5,7 +5,7 @@
       "projectType": "library",
       "root": "libs/payment-ux",
       "sourceRoot": "libs/payment-ux/src",
-      "prefix": "fancy-credit-card-form",
+      "prefix": "ngbs",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",

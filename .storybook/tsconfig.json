@@ -1,9 +1,14 @@
 {
-  "extends": "%SET_DURING_SB_INIT%",
+  "extends": "../tsconfig.json",
   "compilerOptions": {
     "types": ["node"]
   },
-  "exclude": ["../apps/test.ts", "../apps/**/*.spec.ts", "../libs/**/*.spec.ts"],
+  "exclude": [
+    "../apps/test.ts",
+    "../apps/**/*.spec.ts",
+    "../libs/**/*.spec.ts",
+    "../libs/**/test-setup.ts"
+  ],
   "include": ["../apps/**/*", "../libs/**/*"],
   "files": ["./typings.d.ts"]
 }
