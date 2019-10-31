@@ -16,7 +16,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@fancy-credit-card-form/payment-ux": ["libs/payment-ux/src/index.ts"]
+      "@ngbs/payment-ux": ["libs/payment-ux/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

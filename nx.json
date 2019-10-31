@@ -1,5 +1,5 @@
 {
-  "npmScope": "fancy-credit-card-form",
+  "npmScope": "ngbs",
   "implicitDependencies": {
     "angular.json": "*",
     "package.json": "*",
