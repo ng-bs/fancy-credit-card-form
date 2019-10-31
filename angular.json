@@ -1,6 +1,38 @@
 {
   "version": 1,
-  "projects": {},
+  "projects": {
+    "payment-ux": {
+      "projectType": "library",
+      "root": "libs/payment-ux",
+      "sourceRoot": "libs/payment-ux/src",
+      "prefix": "fancy-credit-card-form",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/payment-ux/tsconfig.lib.json",
+              "libs/payment-ux/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/payment-ux/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/payment-ux/jest.config.js",
+            "tsConfig": "libs/payment-ux/tsconfig.spec.json",
+            "setupFile": "libs/payment-ux/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    }
+  },
   "cli": {
     "defaultCollection": "@nrwl/angular"
   },
@@ -12,5 +44,6 @@
     "@nrwl/angular:library": {
       "unitTestRunner": "jest"
     }
-  }
+  },
+  "defaultProject": "payment-ux"
 }
