@@ -1,0 +1,47 @@
+form {
+  display: grid;
+  grid-template:
+    ' numlbl     .       .'
+    'cardnum  cardnum cardnum'
+    ' namelbl    .       .'
+    '  name     name    name'
+    ' explbl     .     cvvlbl'
+    ' month     year    cvv'
+    ' submit   submit  submit' / 1fr 1fr 1fr;
+  gap: 8px;
+}
+
+[for='cardNumber'] {
+  grid-area: numlbl;
+}
+[id='cardNumber'] {
+  grid-area: cardnum;
+}
+[for='cardholder'] {
+  grid-area: namelbl;
+}
+[id='cardholder'] {
+  grid-area: name;
+}
+[for='expirationMonth'] {
+  grid-area: explbl;
+}
+[id='expirationMonth'] {
+  grid-area: month;
+}
+[id='expirationYear'] {
+  grid-area: year;
+}
+[for='cvv'] {
+  grid-area: cvvlbl;
+}
+[id='cvv'] {
+  grid-area: cvv;
+}
+button[type='submit'] {
+  grid-area: submit;
+}
+label {
+  font-size: 0.5em;
+  color: #00000088;
+}

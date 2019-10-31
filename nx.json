@@ -10,6 +10,12 @@
   "projects": {
     "payment-ux": {
       "tags": []
+    },
+    "atm-e2e": {
+      "tags": []
+    },
+    "atm": {
+      "tags": []
     }
   }
 }

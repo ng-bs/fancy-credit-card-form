@@ -6,8 +6,6 @@ export default {
 };
 
 export const creditCardForm = () => ({
-  component: CreditCardFormComponent,
-  moduleMetadata: {
-    imports: [PaymentUxModule]
-  }
+  template: `WEE`,
+  props: {}
 });

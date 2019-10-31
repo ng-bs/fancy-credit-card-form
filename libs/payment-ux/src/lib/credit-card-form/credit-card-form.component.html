@@ -1,1 +1,36 @@
-<p>credit-card-form works!</p>
+<ngbs-credit-card-display
+  [cardNumber$]="creditCardFormGroup.controls['cardNumber'].valueChanges"
+></ngbs-credit-card-display>
+<form
+  [formGroup]="creditCardFormGroup"
+  (ngSubmit)="onSubmitted(creditCardFormGroup)"
+>
+  <label for="cardNumber">Card Number</label>
+  <input
+    type="text"
+    id="cardNumber"
+    formControlName="cardNumber"
+    maxlength="16"
+  />
+
+  <label for="cardholder">Card Name</label>
+  <input type="text" id="cardholder" formControlName="cardholder" />
+
+  <label for="expirationMonth">Expiration Date</label>
+  <input type="text" id="expirationMonth" formControlName="expirationMonth" />
+  <select id="expirationMonth" formControlName="expirationMonth">
+    <option value=""></option>
+    <option *ngFor="let month of months" [value]="month">{{ month }}</option>
+  </select>
+
+  <input type="text" id="expirationYear" formControlName="expirationYear" />
+  <select id="expirationYear" formControlName="expirationYear">
+    <option value=""></option>
+    <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+  </select>
+
+  <label for="cvv">CVV</label>
+  <input type="text" id="cvv" formControlName="cvv" maxlength="4" />
+
+  <button type="submit" [disabled]="creditCardFormGroup.invalid">Submit</button>
+</form>

@@ -7,6 +7,16 @@
       "sourceRoot": "libs/payment-ux/src",
       "prefix": "ngbs",
       "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "build",
+            "tsConfig": "libs/payment-ux/tsconfig.lib.json",
+            "assets": [],
+            "styles": [],
+            "scripts": []
+          }
+        },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
@@ -29,6 +39,126 @@
       "schematics": {
         "@nrwl/angular:component": {
           "styleext": "scss"
+        }
+      }
+    },
+    "atm": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/atm",
+      "sourceRoot": "apps/atm/src",
+      "prefix": "ngbs",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/atm",
+            "index": "apps/atm/src/index.html",
+            "main": "apps/atm/src/main.ts",
+            "polyfills": "apps/atm/src/polyfills.ts",
+            "tsConfig": "apps/atm/tsconfig.app.json",
+            "aot": false,
+            "assets": ["apps/atm/src/favicon.ico", "apps/atm/src/assets"],
+            "styles": ["apps/atm/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/atm/src/environments/environment.ts",
+                  "with": "apps/atm/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "atm:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "atm:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "atm:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/atm/tsconfig.app.json",
+              "apps/atm/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/atm/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/atm/jest.config.js",
+            "tsConfig": "apps/atm/tsconfig.spec.json",
+            "setupFile": "apps/atm/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "atm-e2e": {
+      "root": "apps/atm-e2e",
+      "sourceRoot": "apps/atm-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/atm-e2e/cypress.json",
+            "tsConfig": "apps/atm-e2e/tsconfig.e2e.json",
+            "devServerTarget": "atm:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "atm:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/atm-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/atm-e2e/**"]
+          }
         }
       }
     }
