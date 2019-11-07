@@ -1,12 +1,5 @@
 :host {
-  display: grid;
-  place-items: center;
-  grid-template:
-    ' .      .       type'
-    'num    num      num '
-    'holder  .       exp'
-    / 1fr 1fr 1fr;
-
+  display: block;
   width: 430px;
   height: 250px;
 
@@ -15,6 +8,21 @@
   padding: 20px;
   box-sizing: border-box;
   font-size: 1.6em;
+}
+
+.front {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  grid-template:
+    ' .      .       type'
+    'num    num      num '
+    'holder  .       exp'
+    / 1fr 1fr 1fr;
+}
+
+.back {
 }
 
 .type {

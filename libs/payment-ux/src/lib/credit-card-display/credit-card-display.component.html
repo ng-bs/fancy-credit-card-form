@@ -1,16 +1,22 @@
-<div class="type">VISA</div>
-<div class="card-number">
-  <span
-    @flipChar
-    *ngFor="
-      let num of cardNumberDisplay | async;
-      let i = index;
-      trackBy: trackByIndex
-    "
-    class="c{{ i }}"
-  >
-    {{ num }}
-  </span>
+<div class="front">
+  <div class="type">VISA</div>
+  <div class="card-number">
+    <span
+      @flipChar
+      *ngFor="
+        let num of cardNumberDisplay | async;
+        let i = index;
+        trackBy: trackByIndex
+      "
+      class="c{{ i }}"
+    >
+      {{ num }}
+    </span>
+  </div>
+  <div class="cardholder">NGBS</div>
+  <div class="exp-date"></div>
 </div>
-<div class="cardholder">NGBS</div>
-<div class="exp-date">11/19</div>
+
+<div class="back">
+  <span class="cvv">{{ cvv$ | async }}</span>
+</div>

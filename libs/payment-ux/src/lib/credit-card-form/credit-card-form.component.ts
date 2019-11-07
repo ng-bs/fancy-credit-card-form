@@ -19,6 +19,7 @@ export class CreditCardFormComponent implements OnInit {
   creditCardFormGroup: FormGroup;
   months: string[];
   years: string[];
+  showBack = false;
 
   constructor(private formBuilder: FormBuilder) { }
   /* JUSTIN'S CREDIT CARD #

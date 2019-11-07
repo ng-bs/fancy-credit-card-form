@@ -1,5 +1,7 @@
 <ngbs-credit-card-display
   [cardNumber$]="creditCardFormGroup.controls['cardNumber'].valueChanges"
+  [cvv$]="creditCardFormGroup.controls['cvv'].valueChanges"
+  [showBack]="showBack"
 ></ngbs-credit-card-display>
 <form
   [formGroup]="creditCardFormGroup"
@@ -30,7 +32,14 @@
   </select>
 
   <label for="cvv">CVV</label>
-  <input type="text" id="cvv" formControlName="cvv" maxlength="4" />
+  <input
+    type="text"
+    id="cvv"
+    formControlName="cvv"
+    maxlength="4"
+    (focus)="showBack = true"
+    (blur)="showBack = false"
+  />
 
   <button type="submit" [disabled]="creditCardFormGroup.invalid">Submit</button>
 </form>

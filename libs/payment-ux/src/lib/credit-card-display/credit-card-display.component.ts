@@ -17,12 +17,25 @@ import { map, startWith } from 'rxjs/operators';
         style({ opacity: 1, transform: 'translateY(0) scale(1)' }),
         animate(200, style({ opacity: 0, transform: 'translateY(-1.5rem) scale(.5)' }))
       ]),
+    ]),
+    trigger('flipper', [
+      state('front', style({
+      })),
+      state('back', style({})),
+      transition('front => back', [
+        animate(500)
+      ]),
+      transition('back => front', [
+        animate(500)
+      ]),
     ])
   ]
 })
 export class CreditCardDisplayComponent implements OnInit {
   @Input() cardNumber$: Observable<string>;
-  cardNumberDisplay: Observable<any>;
+  @Input() cvv$: Observable<string>;
+  @Input() showBack = false;
+  cardNumberDisplay: Observable<string[]>;
 
   constructor() { }
 
