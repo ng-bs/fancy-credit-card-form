@@ -1,2 +1,16 @@
-<p>credit-card-display works!</p>
-<span *ngFor="let num of cardNumberDisplay | async">{{ num }}</span>
+<div class="type">VISA</div>
+<div class="card-number">
+  <span
+    @flipChar
+    *ngFor="
+      let num of cardNumberDisplay | async;
+      let i = index;
+      trackBy: trackByIndex
+    "
+    class="c{{ i }}"
+  >
+    {{ num }}
+  </span>
+</div>
+<div class="cardholder">NGBS</div>
+<div class="exp-date">11/19</div>

@@ -1,0 +1,95 @@
+:host {
+  display: grid;
+  place-items: center;
+  grid-template:
+    ' .      .       type'
+    'num    num      num '
+    'holder  .       exp'
+    / 1fr 1fr 1fr;
+
+  width: 430px;
+  height: 250px;
+
+  background-color: lightslategray;
+  border-radius: 10px;
+  padding: 20px;
+  box-sizing: border-box;
+  font-size: 1.6em;
+}
+
+.type {
+  grid-area: type;
+}
+.card-number {
+  grid-area: num;
+  text-align: center;
+  position: relative;
+
+  // span {
+  //   display: inline-block;
+  //   padding-left: 0.1rem;
+  // }
+  // span:nth-of-type(4n + 5) {
+  //   margin-left: 1.4rem;
+  // }
+}
+.card-number {
+  display: grid;
+  grid-template:
+    'c0 c1 c2 c3 . c4 c5 c6 c7 . c8 c9 c10 c11 . c12 c13 c14 c15'
+    / 1rem 1rem 1rem 1rem 1.4rem 1rem 1rem 1rem 1rem 1.4rem 1rem 1rem 1rem 1rem 1.4rem 1rem 1rem 1rem 1rem;
+}
+.c0 {
+  grid-area: c0;
+}
+.c1 {
+  grid-area: c1;
+}
+.c2 {
+  grid-area: c2;
+}
+.c3 {
+  grid-area: c3;
+}
+.c4 {
+  grid-area: c4;
+}
+.c5 {
+  grid-area: c5;
+}
+.c6 {
+  grid-area: c6;
+}
+.c7 {
+  grid-area: c7;
+}
+.c8 {
+  grid-area: c8;
+}
+.c9 {
+  grid-area: c9;
+}
+.c10 {
+  grid-area: c10;
+}
+.c11 {
+  grid-area: c11;
+}
+.c12 {
+  grid-area: c12;
+}
+.c13 {
+  grid-area: c13;
+}
+.c14 {
+  grid-area: c14;
+}
+.c15 {
+  grid-area: c15;
+}
+.cardholder {
+  grid-area: holder;
+}
+.exp-date {
+  grid-area: exp;
+}
